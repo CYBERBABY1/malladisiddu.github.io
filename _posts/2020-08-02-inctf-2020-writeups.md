@@ -25,6 +25,7 @@ where `m` & `n` are the degree of the two irreducible polynomials reduced from m
 ### The Vulnerability
 * Given n is factorizable.
 Here is my exploit written in sage,
+
 ```python
 p = 2470567871
 P.<x> = PolynomialRing(GF(p))
@@ -41,7 +42,7 @@ flag = bytearray(m)
 print("Flag: ",flag.decode())
 ```
 
-**Flag**: `inctf{and_i_4m_ir0n_m4n}`
+**Flag**: `inctf{and_i_4m_ir0n_m4n}` 
 Post your comments either in the comment section or you can ping me in twitter at [st0ic3r](https://twitter.com/st0ic3r) for queries, sugestions and feedback. 
 
 ---
