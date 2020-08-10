@@ -5,7 +5,7 @@ url : "https://malladisiddu.github.io"
 # Blog Settings
 theme_settings :
   title : Siddartha Malladi
-  favicon : assets/favicon.ico
+  favicon : 
 
   # Profile Settings
   profile :
@@ -44,7 +44,7 @@ theme_settings :
     instagram: st0ic3r
 
   # Disqus
-  disqus_shortname : siddarthamalladi
+  disqus_shortname : https-malladisiddu-github-io
 
 # Pagination
 paginate: 5
