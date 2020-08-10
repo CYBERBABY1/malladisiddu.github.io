@@ -42,6 +42,7 @@ print("Flag: ",flag.decode())
 ```
 
 **Flag**: `inctf{and_i_4m_ir0n_m4n}`
+Post your comments either in the comment section or you can ping me in twitter at [st0ic3r](https://twitter.com/st0ic3r) for queries, sugestions and feedback. 
 
 ---
 ### Reference
