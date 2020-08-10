@@ -1,0 +1,27 @@
+- project :
+    print : True # If 'False' is selected, it will not be displayed in 'home.html > aside > .proj-content'. 
+    modal : True # If 'True' is selected, modal can open in 'portfolio.html'. 
+    url : https://github.com/malladisiddu/ZCrypt # Full URL
+    image : "ZCrypt_flex.png" # path: assets/project/
+    date : 2020.07.20 - Developing
+    title : ZCrypt
+    summary : A Basic Decryption tool
+    description : This is my first project in Cryptography. This tool is made mainly for CTFers to make life easy for fellow crypto enthusiasts. 
+    contents :
+        - title : 1. ZCrypt
+          image : ZCrypt_banner.png
+          description : <li>RSA</li>
+            <li>XOR</li> 
+        - title : 2. RSA
+          image : ZCrypt_rsa_banner.png
+          description : <li>(c,n,e)</li> 
+            <li>(c,p,q,e)</li>
+            <li>(c,n,e,{p or q})</li>
+            <li>(c,n,d)</li>
+            <li>(c1,c2,c3,n1,n2,n3,e) [Hastad Broadcast Attack]</li>
+            <li>(c,e) [Small Exponent("e") Attack]</li> 
+        - title : 3. XOR
+          image : ZCrypt_xor_banner.png
+          description : <li>Single Byte XOR</li>
+            <li>Repeating Key XOR</li>
+
