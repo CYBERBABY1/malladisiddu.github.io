@@ -10,7 +10,7 @@ theme_settings :
   # Profile Settings
   profile :
     image : assets/img/smile.png
-    username : Siddartha Malaldi
+    username : Siddartha Malladi
     description : 3rd year ECE Undergrad at <a href=\"https://amrita.edu\">Amrita University</a> Bangalore Campus, Cybersecurity enthusisat, CTFs with <a href=\"https://ctftime.org/team/72702\">c0d3_h4cki05_</a>, Focuses mainly on Crypto challenges.
     experience :
       - start : 2019-01-08
