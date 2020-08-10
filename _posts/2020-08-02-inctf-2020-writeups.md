@@ -24,7 +24,7 @@ s = (p^m-1)*(p^n-1)
 where `m` & `n` are the degree of the two irreducible polynomials reduced from modulus(n) 
 ### The Vulnerability
 * Given n is factorizable.
-Here is my exploit,
+Here is my exploit written in sage,
 ```python
 p = 2470567871
 P.<x> = PolynomialRing(GF(p))
