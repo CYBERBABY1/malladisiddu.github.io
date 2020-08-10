@@ -45,13 +45,13 @@ def keygen():
 ```
 After a lot of googling I came to know that this is **Okamoto-Uchiyama Cryptosystem**.
 Encryption and Decryption of this cryptosystem is
-![okamoto-cryptosystem](assets/img/okamoto-cryptosystem.png)
+![okamoto-cryptosystem](/assets/img/okamoto-cryptosystem.png)
 
 ---
 ## The Vulnerability
 * Given `modulus(n)` is factorizable
 I just used `factorint` function from `sympy` module to factorize `n`
-![Nfactors](assets/img/Nfactors.png)
+![Nfactors](/assets/img/Nfactors.png)
 
 found `p` and `q`
 ```
