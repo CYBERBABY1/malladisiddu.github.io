@@ -9,7 +9,7 @@
     description : This is my first project in Cryptography. This tool is made mainly for CTFers to make life easy for fellow crypto enthusiasts. 
     contents :
         - title : 1. ZCrypt
-          image : ZCrypt_banner.png
+          image : ZCrypt _banner.png
           description : <li>RSA</li>
             <li>XOR</li> 
         - title : 2. RSA
