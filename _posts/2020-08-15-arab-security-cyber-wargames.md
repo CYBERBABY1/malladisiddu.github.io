@@ -8,7 +8,7 @@ comments : True
 ---
 ![scoreboard](/assets/img/ascscoreboard.png)
 First things first, Arab Security Cyber Wargames is a qualifiers CTF, Top 10 would be qualified for the finals at Egypt.
-We [c0d3_h4cki05_](https://ctftime.org/team/72702)(aka bi0s|Bangalore) finished 10th globally, hence we qualified for finals!
+We [c0d3\_h4cki05\_](https://ctftime.org/team/72702)(aka bi0s|Bangalore) finished 10th globally, hence we qualified for finals!
 Yay! 
  
 In this blog post I will be discussing 2 crypto challenges from Arab Security Wargames CTF Quals. As there are some intial glitches with the server, they shared the challenges [repo](https://github.com/ascwg/Challenges) in the discord server, so we were able to work on the challenges even though there were some glitches.
