@@ -166,5 +166,5 @@ pt = des.decrypt(cipher)
 print(pt)
 ```
 Flag: `ASCWG{Welcome_to_des_weak_key_attack}`
-You can find both the exploit scripts in [github repo](https://github.com/malladisiddu/Crypto-writeups/tree/master/ascwgctf).
+You can find both the exploit scripts in my [github repo](https://github.com/malladisiddu/Crypto-writeups/tree/master/ascwgctf).
 Please post your comments in the comment section or you can ping me via twitter [@st0ci3r](https://twitter.com/st0ic3r) for any queries, suggestions and feedback.
