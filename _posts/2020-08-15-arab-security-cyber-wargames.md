@@ -9,26 +9,27 @@ comments : True
 ![scoreboard](/assets/img/ascscoreboard.png)
 First things first, Arab Security Cyber Wargames is a qualifiers CTF, Top 10 would be qualified for the finals at Egypt.
 We [c0d3_h4cki05_](https://ctftime.org/team/72702)(aka bi0s|Bangalore) finished 10th globally, hence we qualified for finals!
-Yay!
-
+Yay! 
+ 
 In this blog post I will be discussing 2 crypto challenges from Arab Security Wargames CTF Quals. As there are some intial glitches with the server, they shared the challenges [repo](https://github.com/ascwg/Challenges) in the discord server, so we were able to work on the challenges even though there were some glitches.
-
+ 
 |S.No.|Challenge                                                                            | Points |
 |:---:|:-----------------------------------------------------------------------------------:|:------:|
 | 1   | [Challenge 3](https://github.com/ascwg/Challenges/tree/master/Crypto/Challenge%203) | 600    |
 | 3   | [Challenge 5](https://github.com/ascwg/Challenges/tree/master/Crypto/Challenge%205) | 300    |
-
+ 
 ## Challenge 3
 > [output.txt](https://github.com/malladisiddu/Crypto-writeups/blob/master/ascwgctf/challenge3/output.txt)
-
+ 
 Given `output.txt` consists of Public Key (`n` & `e`) and ciphertext `c`
 ```
 n = 2318754427090927622417300593014303163027836982793164162950666250489681094136583599882469330682357229700000166714186122335692872792460409101465630110622887313064657894574037981904943176292533073634387002369380564791579428603519429963490374738649708747360755590037132507998435966068658633431918622092817702780128462915129741083129108481836485937804951555271147615962278158353917059561029043381242474374972583682945918237047674797098894662717409552897418650427548642489575961500481014997803061734956091625431696419759919121068387038071453059311371255995535187052409462363525765654622645413142987775053860188260137197659
 e = 65537
 c = 1852258477078452495280071169336816541669321769289372837198526954361460776833319048556839287633046754304414868057993901219892835088957705515939202089076460374548771033553266251154753679870528816210706553445963568771841753267644973871132621342897934474998162148362874305941012572949171990616677298854465965898581914403406403426504250013897086136105989549801404176555930509653029014518314103310549883855327513190607775750086851774949594618287441246861446444592130784569563671269161854267497652454746479173284327272563799067627736512266913669944284375302659511122504002144054772208775215907860036195680830269422876824977
 ```
-I tried to factorize modulus `n` using [factordb](http://factordb.com/) which didn't help me, so I tried to find the [fermat factors](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method), if you don't know the algo then no worry here is a simple function for Fermat factorization.
 
+I tried to factorize modulus `n` using [factordb](http://factordb.com/) which didn't help me, so I tried to find the [fermat factors](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method), if you don't know the algo then no worry here is a simple function for Fermat factorization.
+ 
 ```python
 def fermat_factor(n):
     assert n % 2 != 0
@@ -45,8 +46,9 @@ yes, I found `p` and `q` using Fermat Factoriation,
 p = 48153446679245376966822046985112099446617981034794594214042780096131516418638366375608599332095159143650219571976756039936351280836582867794175112625879990923510369077946617421338536566796348803001717218384229667003185508514134592197193786758239794011461538791978511429725895132475565257089664121103110770817                                                   
 q = 48153446679245376966822046985112099446617981034794594214042780096131516418638366375608599332095159143650219571976756039936351280836582867794175112625874897500464997377986242441540940715154519674822662819026591330454041967249535003603147605312684911517825154805431323771837685531683672611660925609168788996827
 ```
+ 
 Wait, challenge is not over yet. I tried decrypt the given ciphertext using these primes but couldn't retrieve the plaintext. then I checked whether `p` and `q` are primes or not, as we totient function should be calculated only by primes.
-![partofchallenge](/assets/img/asccrypt3.png)
+![partofchallenge](/assets/img/asccrypto3.png)
 ```
 In [11]: isPrime(p)
 Out[11]: 0
@@ -165,6 +167,6 @@ des = DES.new(key,DES.MODE_ECB)
 pt = des.decrypt(cipher)
 print(pt)
 ```
-Flag: `ASCWG{Welcome_to_des_weak_key_attack}`
+Flag: `ASCWG{Welcome_to_des_weak_key_attack}` 
 You can find both the exploit scripts in my [github repo](https://github.com/malladisiddu/Crypto-writeups/tree/master/ascwgctf).
 Please post your comments in the comment section or you can ping me via twitter [@st0ci3r](https://twitter.com/st0ic3r) for any queries, suggestions and feedback.
