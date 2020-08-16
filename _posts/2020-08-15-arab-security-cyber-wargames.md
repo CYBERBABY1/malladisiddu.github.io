@@ -11,7 +11,7 @@ First things first, Arab Security Cyber Wargames is a qualifiers CTF, Top 10 wou
 We [c0d3_h4cki05_](https://ctftime.org/team/72702)(aka bi0s|Bangalore) finished 10th globally, hence we qualified for finals!
 Yay!
 
-In this blog post I will be discussing 2 crypto challenges from Arab Security Wargames CTF Quals. As there are some intial glitches with the server, they shared the challenges [repo](https://github.com/ascwg/Challenges) in te discord server, so we were able to work on the challenges even though there were some glitches.
+In this blog post I will be discussing 2 crypto challenges from Arab Security Wargames CTF Quals. As there are some intial glitches with the server, they shared the challenges [repo](https://github.com/ascwg/Challenges) in the discord server, so we were able to work on the challenges even though there were some glitches.
 
 |S.No.|Challenge                                                                            | Points |
 |:---:|:-----------------------------------------------------------------------------------:|:------:|
@@ -27,7 +27,7 @@ n = 2318754427090927622417300593014303163027836982793164162950666250489681094136
 e = 65537
 c = 1852258477078452495280071169336816541669321769289372837198526954361460776833319048556839287633046754304414868057993901219892835088957705515939202089076460374548771033553266251154753679870528816210706553445963568771841753267644973871132621342897934474998162148362874305941012572949171990616677298854465965898581914403406403426504250013897086136105989549801404176555930509653029014518314103310549883855327513190607775750086851774949594618287441246861446444592130784569563671269161854267497652454746479173284327272563799067627736512266913669944284375302659511122504002144054772208775215907860036195680830269422876824977
 ```
-I tried to factorize modulus `n` using [factordb](http://factordb.com/) which didn't help me, so I tried to find the [fermat factors](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method), if you don't know the algo thne no worry here is a simple function for Fermat factorization.
+I tried to factorize modulus `n` using [factordb](http://factordb.com/) which didn't help me, so I tried to find the [fermat factors](https://en.wikipedia.org/wiki/Fermat%27s_factorization_method), if you don't know the algo then no worry here is a simple function for Fermat factorization.
 
 ```python
 def fermat_factor(n):
@@ -48,7 +48,6 @@ q = 4815344667924537696682204698511209944661798103479459421404278009613151641863
 Wait, challenge is not over yet. I tried decrypt the given ciphertext using these primes but couldn't retrieve the plaintext. then I checked whether `p` and `q` are primes or not, as we totient function should be calculated only by primes.
 ![partofchallenge](/assets/img/asccrypt3.png)
 ```
-
 In [11]: isPrime(p)
 Out[11]: 0
 
@@ -56,7 +55,6 @@ In [12]: isPrime(q)
 Out[12]: 0
 ```
 As the result shown above they aren't primes. So I further factorized `p` and `q` which got reduced to `p1`, `p2`, `q1`, & `q2`.
-```
 ```
 p1 = 6939268454184877330211144138413966814481101061382015473621711919814088916348213343387168181954880781520959109737312885406280110070698427014630125251118873
 p2 = 6939268454184877330211144138413966814481101061382015473621711919814088916348213343387168181954880781520959109737312885406280110070698427014630125251119529
@@ -102,7 +100,7 @@ Flag: `ASCWG{you_need_fermat_factorization_to_solve_RSA_Small_diffrince_Prime_At
 > [challenge.py](https://github.com/malladisiddu/Crypto-writeups/blob/master/ascwgctf/challenge5/challenge.py) [output.txt](https://github.com/malladisiddu/Crypto-writeups/blob/master/ascwgctf/challenge5/output.txt)
 
 This challenge was pretty easy, I didn't took much time to solve this chalenge as I was aware of this attack before. Given `challenge.py` is the encrypiton file and `output.txt` is the ciphertext,
-```
+```python
 from Crypto.Cipher import DES
 import base64
 from FLAG import flag
@@ -168,5 +166,5 @@ pt = des.decrypt(cipher)
 print(pt)
 ```
 Flag: `ASCWG{Welcome_to_des_weak_key_attack}`
-
+You can find both the exploit scripts in [github repo](https://github.com/malladisiddu/Crypto-writeups/tree/master/ascwgctf).
 Please post your comments in the comment section or you can ping me via twitter [@st0ci3r](https://twitter.com/st0ic3r) for any queries, suggestions and feedback.
