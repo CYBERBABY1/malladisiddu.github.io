@@ -48,7 +48,7 @@ q = 4815344667924537696682204698511209944661798103479459421404278009613151641863
 ```
  
 Wait, challenge is not over yet. I tried decrypt the given ciphertext using these primes but couldn't retrieve the plaintext. then I checked whether `p` and `q` are primes or not, as we totient function should be calculated only by primes.
-![partofchallenge](/assets/img/asccrypto3.png)
+![partofchallenge](/assets/img/acscrypto3.png)
 ```
 In [11]: isPrime(p)
 Out[11]: 0
