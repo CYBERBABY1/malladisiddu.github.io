@@ -2,7 +2,7 @@
 layout: post
 title: Arab Security Cyber Wargames
 subtitle : Crypto Writeups
-tags: [crypto,ctf,rsa,des,cbc,]
+tags: [crypto,ctf,rsa,des]
 author: Siddartha Malladi
 comments : True
 ---
