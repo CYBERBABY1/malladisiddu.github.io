@@ -9,7 +9,8 @@ comments : True
 ![logo](https://github.com/malladisiddu/malladisiddu.github.io/blob/master/assets/img/fwordlogo.png)  
 I thoroughly enjoyed playing FwordCTF-2020, but I could manage to play only for 7 hours.  
 ## Randomness 
-> [Randomness.py](https://github.com/malladisiddu/Crypto-writeups/blob/master/FwordCTF/Randomness/Randomness.py)
+> [Randomness.py](https://github.com/malladisiddu/Crypto-writeups/blob/master/FwordCTF/Randomness/Randomness.py) 
+
 Given an encryption file in which the output is commented, 
 ```python
 from Crypto.Util.number import *
