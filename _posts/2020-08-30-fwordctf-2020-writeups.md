@@ -80,11 +80,10 @@ while c<len(flag):
 	X.append((a*X[c]+b)%p)
 	c+=1
 ``` 
-We understood that `p` is a random *prime number*, `a` & `b` are any two random numbers. Also we can understand that, this `a*getrandbits(64)+b)%p` is the part which is producing `X[i]`. But the first it seeded an initial value into `X`. Now, for any noob like me two questions will arise, 
-### What is the type of PRNG used? 
-### How to crack it? 
-So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedia.org/wiki/List_of_random_number_generators). I idea is to  google each Random Number Generator(RNG) and finding similarity to our code. Fortunately, I found it. It is [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)(LCG). This equation confirmed it,
-    {\displaystyle X_{n+1}=\left(aX_{n}+c\right){\bmod {m}}} 
+We understood that `p` is a random **prime number**, `a` & `b` are any two random numbers. Also we can understand that, this `a*getrandbits(64)+b)%p` is the part which is producing `X[i]`. But the first it seeded an initial value into `X`. Now, for any noob like me two questions will arise, 
+#### [1] What is the type of PRNG used? 
+#### [2] How to crack it? 
+So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedia.org/wiki/List_of_random_number_generators). I idea is to  google each Random Number Generator(RNG) and finding similarity to our code. Fortunately, I found it. It is [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)(LCG). 
 I have referred to many articles to find the answer for the 2nd question, and I got to know that LCG is the easiest of all PRNG's for both implementing & cracking. Let's crack it,
 Let us understand the terminology here, 
 `p` - modulus 
@@ -176,7 +175,9 @@ for i in range(len(output)):
 	flag+= chr(s[i]^output[i])
 print("[+] Flag: ",flag)
 ``` 
-*Flag:* `FwordCTF{LCG_easy_to_break!That_was_a_mistake_choosing_it_as_a_secure_way}`
+**Flag:** `FwordCTF{LCG_easy_to_break!That_was_a_mistake_choosing_it_as_a_secure_way}`
 You can find my entire exploit [here](https://github.com/malladisiddu/Crypto-writeups/blob/master/FwordCTF/Randomness/lcgcrack.py). If you have any queries, feedback, suggestions either you can put them in comment section or you can ping me via twitter [@st0ic3r](https://twitter.com/st0ic3r).
+
 Alright, See you next time
+
 Bu, Bye !
