@@ -84,12 +84,12 @@ while c<len(flag):
 We understood that `p` is a random **prime number**, `a` & `b` are any two random numbers. Also we can understand that, this `a*getrandbits(64)+b)%p` is the part which is producing `X[i]`. But the first it seeded an initial value into `X`. Now, for any noob like me two questions will arise, 
 #### [1] What is the type of PRNG used? 
 #### [2] How to crack it? 
-So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedia.org/wiki/List_of_random_number_generators). I idea is to  google each Random Number Generator(RNG) and finding similarity to our code. Fortunately, I found it. It is [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)(LCG). 
-I have referred to many articles to find the answer for the 2nd question, and I got to know that LCG is the easiest of all PRNG's for both implementing & cracking. Let's crack it,
-Let us understand the terminology here, 
-`p` - modulus 
-`a` - multiplier 
-`b` - increment 
+So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedia.org/wiki/List_of_random_number_generators). I idea is to  google each Random Number Generator(RNG) and finding similarity to our code. Fortunately, I found it. It is [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)(LCG).  
+I have referred to many articles to find the answer for the 2nd question, and I got to know that LCG is the easiest of all PRNG's for both implementing & cracking. Let's crack it, 
+Let us understand the terminology here,  
+`p` - modulus  
+`a` - multiplier  
+`b` - increment  
 Unfortunately, We don't the values of all the three. Let us understand this `a*getrandbits(64)+b)%p` working, 
 ```
 x1 = x0*a + b  (mod p)
