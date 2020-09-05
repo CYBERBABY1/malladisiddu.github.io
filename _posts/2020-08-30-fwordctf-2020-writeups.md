@@ -6,7 +6,7 @@ tags: [crypto, ctf, lcg, prng]
 author: Siddartha Malladi
 comments : True
 ---
-![logo](https://github.com/malladisiddu/malladisiddu.github.io/blob/master/assets/img/fwordlogo.png)  
+![logo](https://ctftime.org/media/events/logo-twitter.png)
 I thoroughly enjoyed playing FwordCTF-2020, but I could manage to play only for 7 hours.  
 ## Randomness 
 > [Randomness.py](https://github.com/malladisiddu/Crypto-writeups/blob/master/FwordCTF/Randomness/Randomness.py) 
