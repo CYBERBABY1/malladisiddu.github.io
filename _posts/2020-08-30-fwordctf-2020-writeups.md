@@ -176,7 +176,8 @@ for i in range(len(output)):
 	flag+= chr(s[i]^output[i])
 print("[+] Flag: ",flag)
 ``` 
-**Flag:** `FwordCTF{LCG_easy_to_break!That_was_a_mistake_choosing_it_as_a_secure_way}`
+**Flag:** `FwordCTF{LCG_easy_to_break!That_was_a_mistake_choosing_it_as_a_secure_way}` 
+
 You can find my entire exploit [here](https://github.com/malladisiddu/Crypto-writeups/blob/master/FwordCTF/Randomness/lcgcrack.py). If you have any queries, feedback, suggestions either you can put them in comment section or you can ping me via twitter [@st0ic3r](https://twitter.com/st0ic3r).
 
 Alright, See you next time
