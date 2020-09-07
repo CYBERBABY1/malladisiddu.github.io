@@ -6,7 +6,8 @@ tags: [crypto, ctf, lcg, prng]
 author: Siddartha Malladi
 comments : True
 ---
-![logo](https://ctftime.org/media/events/logo-twitter.png)
+![logo](https://ctftime.org/media/events/logo-twitter.png)  
+
 I thoroughly enjoyed playing FwordCTF-2020, but I could manage to play only for 7 hours.  
 ## Randomness 
 > [Randomness.py](https://github.com/malladisiddu/Crypto-writeups/blob/master/FwordCTF/Randomness/Randomness.py) 
@@ -85,7 +86,12 @@ while c<len(flag):
 We understood that `p` is a random **prime number**, `a` & `b` are any two random numbers. Also we can understand that, this `a*getrandbits(64)+b)%p` is the part which is producing `X[i]`. But at first it seeded an initial value into `X`. Now, for any noob like me two questions will arise, 
 #### [1] What is the type of PRNG used? 
 #### [2] How to crack it? 
-So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedia.org/wiki/List_of_random_number_generators). My idea is to  google each Random Number Generator(RNG) and finding similarity to our code. Fortunately, I found it. It is [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)(LCG).  
+So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedia.org/wiki/List_of_random_number_generators). My idea is to  google each Random Number Generator(RNG) and finding similarity to our code. Fortunately, I found it. It is [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)(LCG). 
+
+This equation confirmed me that it is an LCG,
+
+  {\displaystyle X_{n+1}=\left(aX_{n}+c\right){\bmod {m}}} 
+
 I have referred to many articles to find the answer for the 2nd question, and I got to know that LCG is the easiest of all PRNG's for both implementing & cracking. Let's crack it, 
 Let us understand the terminology here,  
 `p` - modulus  
@@ -93,23 +99,23 @@ Let us understand the terminology here,
 `b` - increment  
 Unfortunately, We don't the values of all the three. Let us understand this `a*getrandbits(64)+b)%p` working, 
 ```
-x1 = x0*a + b  (mod p)
-x2 = x1*a + b  (mod p)
-x3 = x2*a + b  (mod p)
+s1 = s0*a + b  (mod p)
+s2 = s1*a + b  (mod p)
+s3 = s2*a + b  (mod p)
 ``` 
 Its feeding back the intial seed to find the next one. Next one to find the next one & so on. Let us rearrange the equations a bit, 
 ```
-x1 - (x0*a + b) = k_1 * p
-x2 - (x1*a + b) = k_2 * p
-x3 - (x2*a + b) = k_3 * p
+s1 - (s0*a + b) = k_1 * p
+s2 - (s1*a + b) = k_2 * p
+s3 - (s2*a + b) = k_3 * p
 ``` 
 Its unreal to solve 3 equations with 6 unknowns, but number theory made it real by using simple property i.e., if we have few random multiples of p, with large probability their gcd will be equal to p.
 Let us manipulate the above equations a bit, 
 ```
-t0 = x1 - x0
-t1 = x2 - x1 = (x1*a + b) - (x0*a + b) = a*(x1 - x0) = a*t0 (mod p)
-t2 = x3 - x2 = (x2*a + b) - (x1*a + b) = a*(x2 - x1) = a*t1 (mod p)
-t3 = x4 - x3 = (x3*a + b) - (x2*a + b) = a*(x3 - x2) = a*t2 (mod p)
+t0 = s1 - s0
+t1 = s2 - s1 = (s1*a + b) - (s0*a + b) = a*(s1 - s0) = a*t0 (mod p)
+t2 = s3 - s2 = (s2*a + b) - (s1*a + b) = a*(s2 - s1) = a*t1 (mod p)
+t3 = s4 - s3 = (s3*a + b) - (s2*a + b) = a*(s3 - s2) = a*t2 (mod p)
 ``` 
 Final equation to solve this is, 
 ```
@@ -125,20 +131,20 @@ def crack_unknown_modulus(states):
 ``` 
 Now we got the modulus, its pretty simple to find multiplier & increment. Let us consider the first two equations and subtract them 
 ```
-x_1 = x0*a + b  (mod p)
-x_2 = x1*a + b  (mod p)
+s1 = x0*a + b  (mod p)
+s_2 = x1*a + b  (mod p)
 
-x_2 - x_1 = x1*a - x0*a  (mod p)
-x_2 - x_1 = a*(x1 - x0)  (mod p)
-a = (x_2 - x_1)/(x_1 - x_0)  (mod p)
+s_2 - s_1 = s1*a - s0*a  (mod p)
+s_2 - s_1 = a*(s1 - s0)  (mod p)
+a = (s_2 - s_1)/(s_1 - s_0)  (mod p)
 ``` 
 that's it we got `a` and now `b` can be retrieved by by using only one equation as we know all other values in the equation. Consider the first equation, 
 ```
-x1 = x0*a + b   (mod p)
+s1 = s0*a + b   (mod p)
 ``` 
 After rearranging, 
 ```
-b  = x1 - x0*a  (mod p)
+b  = s1 - s0*a  (mod p)
 ``` 
 Let us put this in a function, 
 ```python
