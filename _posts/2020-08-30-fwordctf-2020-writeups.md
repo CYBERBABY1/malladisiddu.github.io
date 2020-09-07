@@ -83,14 +83,17 @@ while c<len(flag):
 	X.append((a*X[c]+b)%p)
 	c+=1
 ``` 
-We understood that `p` is a random **prime number**, `a` & `b` are any two random numbers. Also we can understand that, this `a*getrandbits(64)+b)%p` is the part which is producing `X[i]`. But at first it seeded an initial value into `X`. Now, for any noob like me two questions will arise, 
-**[1] What is the type of PRNG used?** 
+We understood that `p` is a random **prime number**, `a` & `b` are any two random numbers. Also we can understand that, this `a*getrandbits(64)+b)%p` is the part which is producing `X[i]`. But at first it seeded an initial value into `X`. Now, for any noob like me two questions will arise,
+
+**[1] What is the type of PRNG used?**
+
 **[2] How to crack it?** 
+
 So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedia.org/wiki/List_of_random_number_generators). My idea is to  google each Random Number Generator(RNG) and finding similarity to our code. Fortunately, I found it. It is [Linear Congruential Generator](https://en.wikipedia.org/wiki/Linear_congruential_generator)(LCG). 
 
 This equation confirmed me that it is an LCG,
 
- > \(X_{n+1}\)=(\(aX_{n}+c\) )(mod{\m}) 
+\(X_{n+1}\)=(\(aX_{n}+c\) )(mod{\m}) 
 
 ### Cracking LCG
 I have referred to many articles to find the answer for the 2nd question, and I got to know that LCG is the easiest of all PRNG's for both implementing & cracking. Let's crack it, 
