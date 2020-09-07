@@ -93,7 +93,7 @@ So, I have googled for list of PRNG's. I got the list [here](https://en.wikipedi
 
 This equation confirmed me that it is an LCG,
 
-$$\(X_{n+1}\)=(\(aX_{n}+c\)) \(mod{\m}\)$$
+$$(X_{n+1}) = (aX_{n}+c)\pmod m$$
 
 ### Cracking LCG
 I have referred to many articles to find the answer for the 2nd question, and I got to know that LCG is the easiest of all PRNG's for both implementing & cracking. Let's crack it, 
