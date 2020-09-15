@@ -2,7 +2,8 @@
 layout: post
 title: PoseidonCTF 2020 writeups
 subtitle : discrete log challenge
-tags: [crypto, ctf]
+categories: [crypto, ctf]
+tags: [okamoto]
 author: Siddartha Malladi
 comments : True
 ---
