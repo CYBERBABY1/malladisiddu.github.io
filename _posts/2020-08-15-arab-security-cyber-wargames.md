@@ -2,7 +2,8 @@
 layout: post
 title: Arab Security Cyber Wargames
 subtitle : Crypto Writeups
-tags: [crypto,ctf,rsa,des]
+categories: [crypto, ctf]
+tags: [rsa,fermat,des,weakkeys]
 author: Siddartha Malladi
 comments : True
 ---
