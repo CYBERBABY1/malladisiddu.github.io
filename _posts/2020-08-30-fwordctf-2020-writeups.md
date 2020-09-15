@@ -2,7 +2,8 @@
 layout: post
 title: FwordCTF 2020
 subtitle : Randomness Challenge
-tags: [crypto, ctf, lcg, prng]
+categories: [crypto, ctf]
+tags: [lcg, prng]
 author: Siddartha Malladi
 comments : True
 ---
