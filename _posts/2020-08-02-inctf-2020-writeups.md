@@ -2,7 +2,8 @@
 layout: post
 title: InCTF 2020 writeups
 subtitle : PolyRSA writeup
-tags: [crypto,ctf,rsa]
+categories: [crypto, ctf]
+tags: [rsa]
 author: Siddartha Malladi
 comments : True
 ---
